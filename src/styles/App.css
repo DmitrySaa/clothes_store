@@ -12,3 +12,9 @@
 .App {
     width: 800px;
 }
+.NavBar {
+    background-color: brown;
+    color: white;
+    width: 300px;
+    float: right;
+}

@@ -8,9 +8,12 @@ import NavBar from "./components/NavBar";
 function App() {
 
   return (
-    
+
     <BrowserRouter>
-      <NavBar />
+      <div>
+        <NavBar /> {/* Вставляем NavBar */}
+        {/* Добавьте другие компоненты и маршруты здесь */}
+      </div>
       <AppRouter />
     </BrowserRouter>
   );
