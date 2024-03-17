@@ -5,7 +5,6 @@
 }
 
 #root {
-    display: flex;
     justify-content: center;
 }
 
@@ -13,8 +12,19 @@
     width: 800px;
 }
 .NavBar {
-    background-color: brown;
-    color: white;
-    width: 300px;
-    float: right;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer {
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    text-align: center; 
+    background-color: #333; 
+    color: white; 
+    padding: 20px 0;
 }
