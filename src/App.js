@@ -10,10 +10,7 @@ function App() {
   return (
 
     <BrowserRouter>
-      <div>
-        <NavBar /> {/* Вставляем NavBar */}
-        {/* Добавьте другие компоненты и маршруты здесь */}
-      </div>
+        <NavBar />
       <AppRouter />
     </BrowserRouter>
   );
