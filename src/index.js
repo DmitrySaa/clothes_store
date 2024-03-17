@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import UserStore from './store/UserStore';
 import ClothesStore from './store/ClothesStore';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const Context = createContext(null)
 
