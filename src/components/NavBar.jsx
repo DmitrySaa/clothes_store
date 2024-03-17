@@ -1,23 +1,30 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useContext } from 'react';
+import { Link, NavLink } from "react-router-dom";
+import { Context } from '..';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { AUTH_ROUTE, SHOP_ROUTE } from '../utils/consts';
+import { observer } from 'mobx-react-lite';
 
-const NavBar = () => {
+const NavBar = observer(() => {
+    const { user } = useContext(Context)
     return (
+
         <div className='NavBar'>
-            <li>
-                <Link to="/">Главная</Link>
-            </li>
-            <li>
-                <Link to="/profile">Профиль</Link>
-            </li>
-            <li>
-                <Link to="/Auth">Авторизация</Link>
-            </li>
-            <li>
-                <Link to="/registration">Регистрация</Link>
-            </li>
+            <NavLink to={SHOP_ROUTE}>
+                <img width={60} src='https://img.freepik.com/premium-vector/pug-dog-face-isolated-on-a-white-background-svg-vector-illustration_793674-174.jpg' />
+            </NavLink>
+            {user.isAuth ?
+                <Nav className="ml-auto">
+                    <Button variant="success">Профиль</Button>
+                </Nav>
+                :
+                <Nav className="ml-auto">
+                    <Button href={AUTH_ROUTE} variant="secondary">Регистрация</Button>
+                    <Button variant="secondary">О нас</Button>
+                </Nav>
+            }
         </div>
     );
-}
+})
 
 export default NavBar;
