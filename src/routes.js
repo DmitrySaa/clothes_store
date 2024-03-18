@@ -1,4 +1,4 @@
-import { ADMIN_ROUTE, AUTH_ROUTE, BASKET_ROUTE, DRESS_ROUTE, SHOP_ROUTE } from "./utils/consts";
+import { ADMIN_ROUTE, BASKET_ROUTE, DRESS_ROUTE, LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "./utils/consts";
 import Admin from './pages/Admin'
 import Shop from './pages/Shop'
 import Basket from './pages/Basket'
@@ -23,7 +23,11 @@ export const publicRoutes = [
         Component: Shop
     },
     {
-        path: AUTH_ROUTE,
+        path: LOGIN_ROUTE,
+        Component: Auth
+    },
+    {
+        path: REGISTRATION_ROUTE,
         Component: Auth
     },
     {

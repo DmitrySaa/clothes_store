@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { Context } from '..';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { AUTH_ROUTE, SHOP_ROUTE } from '../utils/consts';
+import { Button,  Nav } from 'react-bootstrap';
+import { LOGIN_ROUTE, SHOP_ROUTE } from '../utils/consts';
 import { observer } from 'mobx-react-lite';
 
 const NavBar = observer(() => {
@@ -19,7 +19,7 @@ const NavBar = observer(() => {
                 </Nav>
                 :
                 <Nav className="ml-auto">
-                    <Button href={AUTH_ROUTE} variant="secondary">Регистрация</Button>
+                    <Button href={LOGIN_ROUTE} variant="secondary">Регистрация</Button>
                     <Button variant="secondary">О нас</Button>
                 </Nav>
             }
