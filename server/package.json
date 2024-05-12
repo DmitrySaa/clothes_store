@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "test": "nodemon server.js"
   },
   "keywords": [],
   "author": "Vitaly Kosolapov, Dmitriy Savostyanov",
