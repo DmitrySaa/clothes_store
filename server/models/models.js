@@ -1,3 +1,5 @@
+// =========== Модели баз данных
+
 const sequelize = require('../db');
 const { DataTypes } = require('sequelize');
 
@@ -73,7 +75,7 @@ Rating.belongsTo(Clothes)
 Clothes.hasMany(BasketClothes)
 BasketClothes.belongsTo(Clothes)
 
-Clothes.hasMany(ClothesInfo)
+Clothes.hasMany(ClothesInfo, {as: 'info'});
 ClothesInfo.belongsTo(Clothes)
 
 Type.belongsToMany(Brand, {through: TypeBrand})
