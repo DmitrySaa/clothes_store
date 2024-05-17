@@ -1,10 +1,12 @@
+// =========== Модели баз данных
+
 const sequelize = require('../db');
 const { DataTypes } = require('sequelize');
 
 const User = sequelize.define('user', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     email: { type: DataTypes.STRING, unique: true },
-    password: { type: DataTypes, STRING },
+    password: { type: DataTypes.STRING, allowNull: false},
     role: { type: DataTypes.STRING, defaultValue: "USER" },
 })
 
@@ -45,6 +47,10 @@ const ClothesInfo = sequelize.define('clothes_info', {
     description: { type: DataTypes.STRING, allowNull: false},
 })
 
+const TypeBrand = sequelize.define('type_brand',{
+    id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+})
+
 User.hasOne(Basket)
 Basket.belongsTo(User)
 
@@ -54,3 +60,35 @@ Rating.belongsTo(User)
 Basket.hasMany(BasketClothes)
 BasketClothes.belongsTo(Basket)
 
+BasketClothes.hasOne(Clothes)
+Clothes.belongsTo(BasketClothes)
+
+Type.hasMany(Clothes)
+Clothes.belongsTo(Type)
+
+Brand.hasMany(Clothes)
+Clothes.belongsTo(Brand)
+
+Clothes.hasMany(Rating)
+Rating.belongsTo(Clothes)
+
+Clothes.hasMany(BasketClothes)
+BasketClothes.belongsTo(Clothes)
+
+Clothes.hasMany(ClothesInfo, {as: 'info'});
+ClothesInfo.belongsTo(Clothes)
+
+Type.belongsToMany(Brand, {through: TypeBrand})
+Brand.belongsToMany(Type,{through: TypeBrand})
+
+module.exports = {
+    User,
+    Rating,
+    Basket,
+    BasketClothes,
+    Clothes,
+    ClothesInfo,
+    Type,
+    Brand,
+    TypeBrand,
+}
