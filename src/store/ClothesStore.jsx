@@ -5,17 +5,24 @@ export default class ClothesStore {
         this._types = [
             {id: 1, name: 'Верхняя одежда'},
             {id: 2, name: 'Нижняя одежда'},
-            {id: 3, name: 'Обувь'}
+            {id: 3, name: 'Обувь'},
         ]
         this._brands = [
             {id: 1, name: 'The North Face'},
             {id: 2, name: 'Nike'},
             {id: 3, name: 'Гоша Рубчинский'},
-            {id: 4, name: 'Adidas'}
+            {id: 4, name: 'Adidas'},
         ]
         this._clothes = [
             {id: 1, name: 'Футболка белая', price: 5990, raiting: 5},
+            {id: 2, name: 'Футболка синяя', price: 3590, raiting: 4},
+            {id: 3, name: 'Футболка алкоголичка', price: 1500, raiting: 10},
+            {id: 4, name: 'Шорты летние', price: 2890, raiting: 3},
+            {id: 5, name: 'Футболка алкоголичка', price: 1500, raiting: 10},
+            {id: 6, name: 'Шорты летние', price: 2890, raiting: 3},
         ]
+        this._selectedType = {}
+        this._selectedBrand = {}
         makeAutoObservable(this)
     }
 
@@ -28,6 +35,12 @@ export default class ClothesStore {
     setClothes(clothes) {
         this._clothes = clothes
     }
+    setSelectedType(type){
+        this._selectedType = type
+    }
+    setSelectedBrand(brand){
+        this._selectedBrand = brand
+    }
 
     get types() {
         return this._types
@@ -37,5 +50,11 @@ export default class ClothesStore {
     }
     get clothes() {
         return this._clothes
+    }
+    get selectedType() {
+        return this._selectedType
+    }
+    get selectedBrand() {
+        return this._selectedBrand
     }
 }

@@ -12,12 +12,19 @@
     width: 800px;
 }
 .NavBar {
+    background-color: aliceblue;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+.NavBar_items {
     width: 80%;
-    height: 100%;
-    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.BrandsCol {
+    display: flex;
 }
 footer {
     position: fixed; 

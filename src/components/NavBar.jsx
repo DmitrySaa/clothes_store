@@ -2,27 +2,32 @@ import React, { useContext } from 'react';
 import { NavLink } from "react-router-dom";
 import { Context } from '..';
 import { Button,  Nav } from 'react-bootstrap';
-import { LOGIN_ROUTE, SHOP_ROUTE } from '../utils/consts';
+import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from '../utils/consts';
 import { observer } from 'mobx-react-lite';
+import { useNavigate } from 'react-router-dom';
 
 const NavBar = observer(() => {
     const { user } = useContext(Context)
+    const navigate = useNavigate()
     return (
 
         <div className='NavBar'>
+            <div className='NavBar_items'>
             <NavLink to={SHOP_ROUTE}>
-                <img width={60} src='https://img.freepik.com/premium-vector/pug-dog-face-isolated-on-a-white-background-svg-vector-illustration_793674-174.jpg' />
+                <img alt="" width={60} src='https://img.freepik.com/premium-vector/pug-dog-face-isolated-on-a-white-background-svg-vector-illustration_793674-174.jpg' />
             </NavLink>
             {user.isAuth ?
                 <Nav className="ml-auto">
-                    <Button variant="success">Профиль</Button>
+                    <Button variant="success" onClick={() => navigate(ADMIN_ROUTE)}>Админ панель</Button>
+                    <Button variant="success" className="ms-2">Профиль</Button>
                 </Nav>
                 :
                 <Nav className="ml-auto">
-                    <Button href={LOGIN_ROUTE} variant="secondary">Регистрация</Button>
-                    <Button variant="secondary">О нас</Button>
+                    <Button href={LOGIN_ROUTE} variant="secondary">Войти</Button>
+                    <Button variant="secondary" className="ms-2">О нас</Button>
                 </Nav>
             }
+            </div>
         </div>
     );
 })
