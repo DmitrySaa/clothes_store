@@ -1,4 +1,3 @@
-const userController = require("../controllers/userController");
 
 class ApiError extends Error{
     constructor(status,message){
