@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Button, Container } from "react-bootstrap";
+import { Button, Col, Container } from "react-bootstrap";
 import CreateBrand from "../components/modals/CreateBrand";
 import CreateType from "../components/modals/CreateType";
 import CreateClothe from "../components/modals/CreateClothe";
@@ -11,20 +11,22 @@ const Admin = () => {
 
   return (
     <Container className="d-flex flex-column mt-3">
-      <Button variant="outline-dark" className="mt-2" onClick={() => setShowType(true)}>
-        Добавить тип
-      </Button>
-      {showType && <CreateType show={showType} handleClose={() => setShowType(false)} />}
+      <Col md={6} className="d-flex flex-column mt-3 ml-4">
+        <Button variant="outline-dark" className="mt-2" onClick={() => setShowType(true)}>
+          Добавить тип
+        </Button>
+        {showType && <CreateType show={showType} handleClose={() => setShowType(false)} />}
 
-      <Button variant="outline-dark" className="mt-2" onClick={() => setShowBrand(true)}>
-        Добавить бренд
-      </Button>
-      {showBrand && <CreateBrand show={showBrand} handleClose={() => setShowBrand(false)} />}
+        <Button variant="outline-dark" className="mt-2" onClick={() => setShowBrand(true)}>
+          Добавить бренд
+        </Button>
+        {showBrand && <CreateBrand show={showBrand} handleClose={() => setShowBrand(false)} />}
 
-      <Button variant="outline-dark" className="mt-2" onClick={() => setShowClothe(true)}>
-        Добавить вещь
-      </Button>
-      {showClothe && <CreateClothe show={showClothe} handleClose={() => setShowClothe(false)} />}
+        <Button variant="outline-dark" className="mt-2" onClick={() => setShowClothe(true)}>
+          Добавить вещь
+        </Button>
+        {showClothe && <CreateClothe show={showClothe} handleClose={() => setShowClothe(false)} />}
+      </Col>
     </Container>
   );
 };
