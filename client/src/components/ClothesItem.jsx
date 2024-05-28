@@ -12,8 +12,7 @@ const ClothesItem = ({clothe}) => {
             <Image width={200} height={200} src={'http://localhost:7000/' + clothe.img}/>
             <div className="d-flex justify-content-between align-items-center mt-1">
                 <div className="d-flex align-items-center">
-                    <div>{clothe.raiting}</div>
-                    <Image src={star}/>
+                    <div><strong>{clothe.price} руб.</strong></div>
                 </div>
             </div>
             <div>

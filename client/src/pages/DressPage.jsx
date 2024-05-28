@@ -46,7 +46,7 @@ const DressPage = (props) => {
             <div style={{marginRight: 5}}>
               {clothe.raiting}
             </div>
-            <Image src={star} />
+            {/* <Image src={star} /> */}
           </div>
         </div>
       </Col>
